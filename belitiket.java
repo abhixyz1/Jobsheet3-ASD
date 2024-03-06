@@ -16,11 +16,11 @@ public class belitiket {
 
     int hitungHarga() {
         int harga = 0;
-        if (jenisTiket.equals("Ekonomi")) {
+        if (jenisTiket.equalsIgnoreCase("Ekonomi")) {
             harga = 100000;
-        } else if (jenisTiket.equals("Bisnis")) {
+        } else if (jenisTiket.equalsIgnoreCase("Bisnis")) {
             harga = 200000;
-        } else if (jenisTiket.equals("Eksekutif")) {
+        } else if (jenisTiket.equalsIgnoreCase("Eksekutif")) {
             harga = 300000;
         }
         return harga;
