@@ -1,10 +1,14 @@
+import java.util.Scanner;
+
 public class belitiket {
     public String nama;
     public int umur;
     public String asalKota;
     public String tujuanKota;
     public String jenisTiket;
-    public static int jumlahTiket;
+    public int jumlahTiket;
+
+    Scanner sc = new Scanner(System.in);
 
     public belitiket(String n, int u, String ak, String tk, String jt) {
         nama = n;
@@ -13,20 +17,32 @@ public class belitiket {
         tujuanKota = tk;
         jenisTiket = jt;
     }
+    public belitiket(){
+        System.out.println("=====================================");
+        System.out.print("Masukkan Nama\t\t: ");
+        nama = sc.nextLine();
+        System.out.print("Masukkan Umur\t\t: ");
+        umur = sc.nextInt();
+        System.out.print("Masukkan Asal Kota\t: ");
+        asalKota = sc.next();
+        System.out.print("Masukkan Tujuan Kota\t: ");
+        tujuanKota = sc.next();
+        System.out.print("Masukkan Jenis Tiket\t: ");
+        jenisTiket = sc.next();
+        System.out.print("Masukkan jumlah tiket yang ingin dibeli: ");
+        jumlahTiket = sc.nextInt();
+    }
 
-    int hitungHarga() {
+    public int totalHarga() {
         int harga = 0;
-        if (jenisTiket.equalsIgnoreCase("Ekonomi")) {
+        if (jenisTiket.equalsIgnoreCase("ekonomi")) {
             harga = 100000;
-        } else if (jenisTiket.equalsIgnoreCase("Bisnis")) {
+        } else if (jenisTiket.equalsIgnoreCase("bisnis")) {
             harga = 200000;
-        } else if (jenisTiket.equalsIgnoreCase("Eksekutif")) {
+        } else if (jenisTiket.equalsIgnoreCase("executive")) {
             harga = 300000;
         }
-        return harga;
-    }
-    int totalHarga() {
-        return hitungHarga() * belitiketDemo.jumlahTiket;
+        return harga * jumlahTiket;
     }
 
     void cetakInfo() {
@@ -36,7 +52,7 @@ public class belitiket {
         System.out.println("| Asal Kota\t\t: " + asalKota);
         System.out.println("| Tujuan Kota\t\t: " + tujuanKota);
         System.out.println("| Jenis Tiket\t\t: " + jenisTiket);
-        System.out.println("| Jumlah tiket\t\t: "+ belitiketDemo.jumlahTiket);
+        System.out.println("| Jumlah tiket\t\t: "+ jumlahTiket);
         System.out.println("| Total Harga\t\t: " + totalHarga());
         System.out.println("=====================================");
     }
